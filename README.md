@@ -2,41 +2,41 @@
 
 ## Overview
 
-This project is a Python-based API Automation Framework developed using Pytest and Requests. The framework follows a clean and maintainable structure with separate layers for API operations, test data, assertions, logging, and test cases.
+This project is a Python-based API Automation Framework developed using Pytest and Requests.
 
-The main objective of this project is to automate REST API testing, validate responses, verify business scenarios, and generate execution reports.
+The framework is designed to automate REST API testing by providing a clean, scalable, and reusable structure. It follows industry-standard automation practices such as reusable API methods, custom assertions, logging, test data management, reporting, and CI/CD integration.
 
----
-
-## Features
-
-* API Automation using Python
-* Pytest Framework
-* Requests Library
-* CRUD API Testing
-* Reusable BaseAPI Design
-* Custom Assertions
-* Logging Support
-* Test Data Management
-* Pytest Fixtures
-* Negative Test Scenarios
-* Allure Reporting
-* Jenkins CI/CD Integration
-* Git and GitHub Version Control
+The framework validates API functionality, verifies responses, and ensures reliable test execution through automated pipelines.
 
 ---
 
-## Tech Stack
+## Project Highlights
 
-| Technology | Purpose                |
-| ---------- | ---------------------- |
-| Python     | Programming Language   |
-| Pytest     | Test Framework         |
-| Requests   | API Testing            |
-| Allure     | Test Reporting         |
-| Jenkins    | Continuous Integration |
-| Git        | Version Control        |
-| GitHub     | Repository Management  |
+* Automated REST API testing using Python and Pytest
+* Implemented CRUD API validations
+* Built reusable API methods using BaseAPI architecture
+* Added custom assertions for response validation
+* Implemented logging for test execution tracking
+* Used Faker for dynamic test data generation
+* Implemented data-driven testing using Pytest parametrization
+* Integrated Allure Reporting for execution reports
+* Configured Jenkins CI/CD pipeline with GitHub Webhooks
+* Maintained source code using Git and GitHub
+
+---
+
+## Technologies Used
+
+| Technology | Purpose                      |
+| ---------- | ---------------------------- |
+| Python     | Programming Language         |
+| Pytest     | Test Automation Framework    |
+| Requests   | API Testing                  |
+| Faker      | Dynamic Test Data Generation |
+| Allure     | Test Reporting               |
+| Jenkins    | CI/CD Automation             |
+| Git        | Version Control              |
+| GitHub     | Source Code Management       |
 
 ---
 
@@ -62,6 +62,7 @@ API_Automation_Framework/
 ├── utils/
 │   ├── assertions.py
 │   ├── config.py
+│   ├── fake_data.py
 │   └── logger.py
 │
 ├── reports/
@@ -71,18 +72,17 @@ API_Automation_Framework/
 ├── pytest.ini
 ├── requirements.txt
 ├── Jenkinsfile
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Framework Design
-
-The framework follows a layered architecture.
+## Framework Architecture
 
 ### API Layer
 
-Responsible for handling API requests and responses.
+Responsible for sending API requests and handling responses.
 
 Files:
 
@@ -91,7 +91,7 @@ Files:
 
 ### Test Layer
 
-Contains all test scenarios and validations.
+Contains all API test scenarios and validations.
 
 Files:
 
@@ -103,7 +103,7 @@ Files:
 
 ### Data Layer
 
-Stores reusable test data.
+Stores reusable test data used across test cases.
 
 Files:
 
@@ -111,39 +111,42 @@ Files:
 
 ### Utility Layer
 
-Contains reusable utilities.
+Contains reusable helper functions and framework utilities.
 
 Files:
 
-* logger.py
 * assertions.py
+* logger.py
 * config.py
+* fake_data.py
 
 ---
 
 ## Test Scenarios Covered
 
-### Positive Scenarios
+### Positive Test Scenarios
 
-* Get User Details
-* Create User
-* Update User
-* Delete User
+* Create User API Validation
+* Get User API Validation
+* Update User API Validation
+* Delete User API Validation
+* Data-Driven User Validation
 
-### Negative Scenarios
+### Negative Test Scenarios
 
-* Invalid User Request
-* Response Validation
+* Invalid User Validation
 * Status Code Validation
+* Response Validation
 
 ---
 
 ## Setup Instructions
 
-### Clone Repository
+### Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rakesh6290/API_Automation_Framework.git
+
 cd API_Automation_Framework
 ```
 
@@ -153,7 +156,7 @@ cd API_Automation_Framework
 python -m venv venv
 ```
 
-### Activate Environment
+### Activate Virtual Environment
 
 Windows:
 
@@ -169,7 +172,7 @@ pip install -r requirements.txt
 
 ---
 
-## Execute Test Suite
+## Execute Tests
 
 Run all tests:
 
@@ -177,7 +180,7 @@ Run all tests:
 pytest -v
 ```
 
-Run specific test file:
+Run a specific test file:
 
 ```bash
 pytest tests/test_get_user.py -v
@@ -185,7 +188,7 @@ pytest tests/test_get_user.py -v
 
 ---
 
-## Generate Allure Reports
+## Generate Allure Report
 
 Generate report data:
 
@@ -193,7 +196,7 @@ Generate report data:
 pytest --alluredir=reports
 ```
 
-Open report:
+Open the report:
 
 ```bash
 allure serve reports
@@ -201,55 +204,88 @@ allure serve reports
 
 ---
 
-## Jenkins Integration
+## CI/CD Integration
 
-This framework supports Jenkins CI/CD execution.
+This framework is integrated with Jenkins for continuous integration and automated execution.
 
-Pipeline Activities:
+### Pipeline Flow
 
-1. Pull latest code from GitHub
-2. Install dependencies
-3. Execute API test suite
-4. Generate Allure Reports
-5. Publish execution results
+GitHub Push
+
+↓
+
+GitHub Webhook Trigger
+
+↓
+
+Jenkins Pipeline Execution
+
+↓
+
+Install Dependencies
+
+↓
+
+Run Pytest Test Suite
+
+↓
+
+Generate Allure Report
+
+↓
+
+Publish Results
 
 ---
 
 ## Logging
 
-Execution logs are captured during test execution for easier debugging and analysis.
+The framework captures execution logs for better debugging and analysis.
 
-Examples:
+Example Logs:
 
 ```text
-INFO - Fetching User
-INFO - User Created Successfully
-INFO - Response Code: 200
-INFO - Test Execution Completed
+INFO - Fetching User Details
+INFO - Creating User
+INFO - Response Status Code: 200
+INFO - Test Execution Completed Successfully
 ```
+
+---
+
+## Reports
+
+### Jenkins Build
+
+(Add Jenkins Build Screenshot)
+
+### Allure Report
+
+(Add Allure Report Screenshot)
 
 ---
 
 ## Future Enhancements
 
 * Environment Configuration (QA/UAT/PROD)
-* Dynamic Test Data using Faker
-* HTML Reporting
 * API Schema Validation
 * Docker Integration
 * Scheduled Jenkins Execution
+* Parallel Test Execution
+* Database Validation Support
 
 ---
 
 ## Learning Outcomes
 
-Through this project I gained hands-on experience in:
+Through this project, I gained practical experience in:
 
 * API Automation Testing
 * Python Programming
 * Pytest Framework
 * Requests Library
 * Test Framework Design
+* Data-Driven Testing
 * CI/CD Concepts
 * Jenkins Integration
 * Allure Reporting
@@ -261,12 +297,15 @@ Through this project I gained hands-on experience in:
 
 **Rakesh Jupally**
 
-QA Automation Engineer
+QA Automation Engineer Aspirant
 
-**Skills:**
-- Python
-- Selenium
-- API Testing
-- Pytest
-- Jenkins
-- Git & GitHub
+### Skills
+
+* Python
+* Selenium
+* API Testing
+* Pytest
+* Jenkins
+* Git & GitHub
+* SQL
+* Manual Testing
