@@ -257,11 +257,11 @@ INFO - Test Execution Completed Successfully
 
 ### Jenkins Build
 
-(Add Jenkins Build Screenshot)
+![alt text](Jenkins_Build.png)
 
 ### Allure Report
 
-(Add Allure Report Screenshot)
+![alt text](Allure_Report.png)
 
 ---
 
