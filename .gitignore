@@ -41,5 +41,3 @@ dist/
 # Jupyter Notebook
 .ipynb_checkpoints/
 
-# Test Artifacts
-screenshots/
